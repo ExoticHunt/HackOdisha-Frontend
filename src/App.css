@@ -1,38 +1,72 @@
-.App {
-  text-align: center;
+* {
+  padding: 0;
+  margin: 0;
+  width: max-content;
+  height: max-content;
+  transition: all 2s ease-in-out;
+  box-sizing: border-box;
+  object-fit: contain;
+  overflow-x: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  height: 100vh;
+  width: 100vw;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.cotainer {
+  width: 60vw;
+  height: 70vh;
+  overflow-y: auto;
+  background: lightblue;
+  display: block;
+  margin: 0 auto;
+  margin-top: 14vh;
+  padding: 2rem;
+  border: 2px solid black;
+  border-radius: 12px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.message {
+  padding: 10px;
+  max-width: 33%;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 4px;
+}
+
+.receive {
+  float: left;
+  clear: both;
+  background-color: skyblue;
+}
+
+.sent {
+  float: right;
+  clear: both;
+  background-color: lightgreen;
+}
+
+#send-container {
+  width: 60vw;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 10px auto;
 }
 
-.App-link {
-  color: #61dafb;
+#send-container input {
+  width: 55vw;
+  height: 30px;
+  border-radius: 6px;
+  border: none;
+  border-bottom: 2px solid grey;
+  overflow: hidden;
+  border-radius: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#send-container button {
+  width: 5vw;
+  height: 30px;
+  background: green;
+  border-radius: 12px;
+  border: none;
 }
