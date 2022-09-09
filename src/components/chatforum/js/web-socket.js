@@ -1,36 +1,73 @@
-const socket = io();
-const form = document.getElementById('send-container');
-const messageInput = document.getElementById('sentMessage');
-const messageContainer = document.querySelector('.cotainer');
+import { useState, useEffect } from 'react';
+import io from 'socket.io-client';
+import styled from 'styled-components';
 
-function append(message, status) {
-    const messageElement = document.createElement('div');
-    messageElement.innerHTML = message;
-    messageElement.classList.add('message');
-    messageElement.classList.add(status);
-    messageContainer.appendChild(messageElement);
+const socket = io('http://localhost:5000');
+
+const Message = {
+    sender: '',
+    message: '',
+    timeStamp: new Date()
 }
 
-const name = prompt('Enter your name join');
-console.log(`${name}: welcome to the chat`)
-socket.emit('new-User-Joined', name);
-document.getElementsByTagName('body').display = 'none'
+function App() {
+	const [isConnected, setIsConnected] = useState(socket.connected);
+	const [lastPong, setLastPong] = useState([]);
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const message = messageInput.value;
-    append(`${message}`, 'sent');
-    socket.emit('send', message);
-    messageInput.value = '';
-})
+	useEffect(() => {
+		socket.on('connect', () => {
+			setIsConnected(true);
+		});
 
+		socket.on('disconnect', () => {
+			setIsConnected(false);
+		});
 
-socket.on('user-Joined', user => {
-    console.log(`${user} joined the chat`);
-    append(`${user} joined the chat`, 'receive');
-})
+		socket.on('pong', (message) => {
+			console.log(`ping : ${new Date().toISOString()}`);
+			setLastPong(message);
+		});
 
-socket.on('receive', data => {
-    console.log(`${data.sender}: ${data.message}`);
-    append(`${data.sender}: ${data.message}`, 'receive');
-})
+		return () => {
+			socket.off('connect');
+			socket.off('disconnect');
+			socket.off('pong');
+		};
+	}, []);
+
+	const sendPing = () => {
+		console.log(`ping : ${new Date().toISOString()}`);
+		socket.emit('ping', {
+			message: document.getElementById('msg').value,
+		});
+	};
+
+	return (
+		<div>
+			<p>Connected: {'' + isConnected}</p>
+			<p>Last pong: {lastPong || '-'}</p>
+			<p>
+				<input
+					type="text"
+					id="msg"
+				></input>
+			</p>
+			<button onClick={sendPing}>Send ping</button>
+		</div>
+	);
+}
+
+const SentMessage = styled.div`
+    display: grid;
+    border: 1px solid #000;
+    padding: 2px;
+    background: green;
+`
+const RecieveMessage = styled.div`
+    display: grid;
+    border: 1px solid #000;
+    padding: 2px;
+    background: red;
+`
+
+export default App;

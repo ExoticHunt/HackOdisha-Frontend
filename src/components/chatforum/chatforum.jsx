@@ -1,31 +1,30 @@
-import React from 'react';
+import { useState } from 'react';
 
-function chatforum(){
-  
-    return (
-        
-        <>
-        {/*<div className='cotainer'></div>
-        <form action='#' id='send-container'>
-            <input type='text' name='sentMessage' id='sentMessage' />
-            <button type='submit'>Send</button>
-    </form>*/}
-        <div className='cotainer'>
-        <div className='message receive'>
-            Simron: Hello
-        </div>
-        <div className='message sent'>
-            Harsh: Hiii
-        </div>
-    </div>
-    <form action='#' id='send-container'>
-        <input type='text' name='sentMessage' id='sentMessage'/>
-        <button type='submit'>
-            Send
-        </button>
-    </form>
-        </>
-       
-    )
+function ChatForum() {
+	const [sentMessage, setSentMessage] = useState([11]);
+	const [receivedMessage, setReceivedMessage] = useState([12]);
+	return (
+		<>
+			<div className="cotainer">
+                {sentMessage.map((item) => (
+                    <div className="message receive">Simron: Hello</div>
+				))}
+                {receivedMessage.map((item) => (
+                    <div className="message sent">Harsh: Hiii</div>
+                ))}
+			</div>
+			<form
+				action="#"
+				id="send-container"
+			>
+				<input
+					type="text"
+					name="sentMessage"
+					id="sentMessage"
+				/>
+				<button type="submit">Send</button>
+			</form>
+		</>
+	);
 }
-export default chatforum;
+export default ChatForum;
