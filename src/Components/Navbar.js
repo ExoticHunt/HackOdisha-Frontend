@@ -3,15 +3,13 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Row, Col} from 'react-bootstrap';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import SearchIcon from '@mui/icons-material/Search';
 
 const NavComponent = () => {
   return (
     <Navbar bg="primary" variant="dark" expand="lg" fixed="top">
       <Container fluid>
-        <Navbar.Brand href="#">Exotic Hunt</Navbar.Brand>
+        <Navbar.Brand href="/">Exotic Hunt</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -19,9 +17,8 @@ const NavComponent = () => {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="/sign-in">Home</Nav.Link>
             <Nav.Link href="/profile">Profile</Nav.Link>
-            <Nav.Link href="/reminder">Reminder</Nav.Link>
+            <Nav.Link href="/reminder">To-Do</Nav.Link>
             <Nav.Link href="/meds">Meds</Nav.Link>
             <Nav.Link href="/community">Community</Nav.Link>
           </Nav>

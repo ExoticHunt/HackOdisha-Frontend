@@ -58,7 +58,7 @@ const Login = () => {
             type="email"
             className="form-control"
             placeholder="Enter email"
-            name="firstname"
+            value={formValues.email}
             onChange = {handleChange}
           />
         </div>

@@ -6,6 +6,7 @@ import Footer from './Components/Footer';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SignUp from './Components/SignUp';
 import Login from './Components/Login';
+import Contact from './Components/Contact';
 
 function App() {
   return (
@@ -13,13 +14,12 @@ function App() {
       <Router>
       <NavComponent />
       <div className='main-container'>
-      
             <Routes>
               <Route exact path="/" element={<Login />} />
               <Route path="/sign-in" element={<Login />} />
               <Route path="/sign-up" element={<SignUp />} />
+              <Route path="/contact" element={<Contact/>} />
             </Routes>
-      
       </div>
       <Footer />
       </Router>
