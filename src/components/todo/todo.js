@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import CreateTask from '../../modals/CreateTask'
 import Card from '../Card/Card';
-// import {
-//   MDBBtn,
-//   MDBModal,
-//   MDBModalDialog,
-//   MDBModalContent,
-//   MDBModalHeader,
-//   MDBModalTitle,
-//   MDBModalFooter,
-// } from 'mdb-react-ui-kit';
+import {
+  MDBBtn,
+  MDBModal,
+  MDBModalDialog,
+  MDBModalContent,
+  MDBModalHeader,
+  MDBModalTitle,
+  MDBModalFooter,
+} from 'mdb-react-ui-kit';
 // import { axios } from "../../axios";
 // import { Reminder } from "../Reminder/Reminder";
 import styled from 'styled-components';
@@ -56,13 +56,13 @@ function Todo() {
       setModal(false)
   }
 
-  // const [basicModal, setBasicModal] = useState(false);
+  const [basicModal, setBasicModal] = useState(false);
 
-  // const toggleShow = () => setBasicModal(!basicModal);
-  // const [reminders, setReminders] = useState([]);
-  // const [formData, setFormData] = useState({});
+  const toggleShow = () => setBasicModal(!basicModal);
+  const [reminders, setReminders] = useState([]);
+  const [formData, setFormData] = useState({});
 
-  // const noReminder = !reminders || (reminders && reminders.length === 0);
+  const noReminder = !reminders || (reminders && reminders.length === 0);
 
   // const getReminders = async () => {
   //   const response = await axios.get("/reminders").catch((err) => {
@@ -73,12 +73,12 @@ function Todo() {
   //   }
   // };
 
-  // const handleChange = (e) => {
-  //   setFormData({
-  //     ...formData,
-  //     [e.target.name]: e.target.value.trim(),
-  //   });
-  // };
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value.trim(),
+    });
+  };
 
   // const addReminder = async (event) => {
   //   event.preventDefault();
@@ -87,7 +87,7 @@ function Todo() {
   //     console.log("Error: ", err);
   //   });
 
-  //   if (response) await getReminders();
+    // if (response) await getReminders();
 
   //   setFormData({});
   // };
@@ -127,14 +127,39 @@ function Todo() {
     </div>*/}
     <div className = "popup">
                 <div><button className = " mt-2 popup-button " onClick = {() => setModal(true)} >Create Task</button></div>
-                <div><button className = "mt-2 popup-button " onClick = {() => setModal(true)} >Reminder</button></div>                
+                <div><button className = "mt-2 popup-button " onClick={toggleShow} >Reminder</button></div>                
             </div>
 
       <div className = "task-container">
       {taskList && taskList.map((obj , index) => <Card taskObj = {obj} index = {index} deleteTask = {deleteTask} updateListArray = {updateListArray}/> )}
       </div>
       <CreateTask toggle = {toggle} modal = {modal} save = {saveTask}/>
-
+      <MDBModal show={basicModal} setShow={setBasicModal} tabIndex='-1'>
+      <MDBModalDialog>
+        <MDBModalContent>
+          <MDBModalHeader>
+            <MDBModalTitle>Add Reminder</MDBModalTitle>
+            <MDBBtn className='btn-close' color='none' onClick={toggleShow}></MDBBtn>
+          </MDBModalHeader>
+          <Remind>
+            <form>
+              <label htmlFor="id">Number</label>
+              <input name="id" placeholder="Example: 1,2 .. " onChange={handleChange} />
+              <label htmlFor="reminder">Reminder</label>
+              <input name="reminder" placeholder="Reminder" onChange={handleChange} />
+              <label htmlFor="time">Time</label>
+              <input name="time" placeholder="Time" onChange={handleChange} />
+            </form>
+          </Remind>
+          <MDBModalFooter>
+            <MDBBtn color='secondary' onClick={toggleShow}>
+              Close
+            </MDBBtn>
+            <MDBBtn type="submit">Save</MDBBtn>
+          </MDBModalFooter>
+        </MDBModalContent>
+      </MDBModalDialog>
+      </MDBModal>
       {/*
       <TodoBody>
     <h3>Reminders</h3>
@@ -193,7 +218,7 @@ overflow-x: hidden;
   
   height:200px ; 
   margin: 20px;
-  box-shadow: 0px 3px 10px #A5A5A5;
+  box-shadow: 0px 3px 50px #A5A5A5;
   display: flex;
   flex-direction: column;
 }
@@ -370,21 +395,21 @@ justify-content: center;
 // }
 // `
 
-// const Remind = styled.div`
-// form{
-//   display: grid;
-//     grid-template-rows: auto auto auto;
-// 	  height:auto;
-//     width: auto;
-// }
-//     display: grid;
-// 	  height:auto;
-//     border: none;
-//     padding: 18px;
-// `
-// const TodoBody = styled.div`
-// height:70vh;
-// width: 90vw
-// `
+const Remind = styled.div`
+form{
+  display: grid;
+    grid-template-rows: auto auto auto;
+	  height:auto;
+    width: auto;
+}
+    display: grid;
+	  height:auto;
+    border: none;
+    padding: 18px;
+`
+const TodoBody = styled.div`
+height:70vh;
+width: 90vw
+`
 
 export default Todo;
