@@ -15,9 +15,14 @@ import {
 import styled from 'styled-components';
 
 function Todo() {
+
+  
   const [modal, setModal] = useState(false);
   const [taskList, setTaskList] = useState([])
-  
+  const reminderData={
+    message:'',
+    time: [],
+  }
   useEffect(() => {
       let arr = localStorage.getItem("taskList")
      
@@ -107,6 +112,7 @@ function Todo() {
 
   return (
     <TodoList>
+    
    {/* <TodoMain>
 
       <div className="popup">
@@ -147,8 +153,8 @@ function Todo() {
               <input name="id" placeholder="Example: 1,2 .. " onChange={handleChange} />
               <label htmlFor="reminder">Reminder</label>
               <input name="reminder" placeholder="Reminder" onChange={handleChange} />
-              <label htmlFor="time">Time</label>
-              <input name="time" placeholder="Time" onChange={handleChange} />
+              <label htmlFor="time" >Time</label>
+              <input name="time" placeholder="Time" type="time" onChange={handleChange} />
             </form>
           </Remind>
           <MDBModalFooter>
