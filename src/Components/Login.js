@@ -3,6 +3,8 @@ import React from 'react';
 const Login = () => {
   return (
     <form>
+      <div className="auth-wrapper">
+        <div className="auth-inner">
         <h3>Sign In</h3>
         <div className="mb-3">
           <input
@@ -26,6 +28,8 @@ const Login = () => {
         <p className="route">
           New User? <a href="/sign-up">Sign up</a>
         </p>
+        </div>
+        </div>
       </form>
   )
 }

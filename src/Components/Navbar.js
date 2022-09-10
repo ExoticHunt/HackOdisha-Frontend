@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Row, Col} from 'react-bootstrap';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import SearchIcon from '@mui/icons-material/Search';
 
 const NavComponent = () => {
   return (
@@ -31,7 +32,7 @@ const NavComponent = () => {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-light" size="sm" >Search</Button>
+            <Button variant="outline-light" size="sm" ><SearchIcon/></Button>
           </Form>
         </Navbar.Collapse>
       </Container>
