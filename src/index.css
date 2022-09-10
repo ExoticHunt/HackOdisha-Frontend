@@ -15,7 +15,7 @@ body, html, .App, #root {
   font-family: 'Poppins', sans-serif;
 }
 
-.auth-wrapper {
+.main-container {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -70,4 +70,8 @@ body, html, .App, #root {
 
 .side-footer{
   padding-top: 1rem;
+}
+
+.error {
+  color: red;
 }
