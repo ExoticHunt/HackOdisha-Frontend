@@ -22,6 +22,7 @@ const NavComponent = () => {
             <Nav.Link href="/meds">Meds</Nav.Link>
             <Nav.Link href="/community">Community</Nav.Link>
           </Nav>
+          
           <Form className="d-flex">
             <Form.Control
               type="search"

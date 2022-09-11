@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
 import Contact from './components/Contact';
+import offline from './components/offline';
 
 function App() {
 	return (
