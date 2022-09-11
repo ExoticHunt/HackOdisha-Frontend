@@ -99,6 +99,7 @@ function Todo({ socket, user }) {
 	//   getReminders();
 	// }, []);
 	const handleReminder = async () => {
+toggleShow()
 		const info = {
 			user: localStorage.getItem('user'),
 			message: document.getElementById('message').value,
@@ -269,6 +270,7 @@ function Todo({ socket, user }) {
 }
 const TodoList = styled.div`
 	width: 100vw;
+	margin-top: 150px;
 	height: auto;
 	overflow-x: hidden;
 
@@ -352,9 +354,9 @@ const TodoList = styled.div`
 			0 1px 3px rgba(0, 0, 0, 0.08);
 		background-image: linear-gradient(
 			to right,
-			#895cf2 0%,
-			#ffabf4 50%,
-			#895cf2 100%
+			#25316D 0%,
+			#7FBCD2 50%,
+			#25316D 100%
 		);
 		transition: 0.5s;
 		&:hover {
