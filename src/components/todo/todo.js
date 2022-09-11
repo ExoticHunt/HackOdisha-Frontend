@@ -16,7 +16,7 @@ import styled from 'styled-components';
 
 function Todo({ socket, user }) {
 	if(!user){
-window.location.href='sign-in';
+// window.location.href='sign-in';
 	}
 	const [modal, setModal] = useState(false);
 	const [taskList, setTaskList] = useState([]);
@@ -104,6 +104,7 @@ window.location.href='sign-in';
 	//   getReminders();
 	// }, []);
 	function handleReminder() {
+		toggleShow()
 		const info = {
 			user: user,
 			id: document.getElementById('cnt').value,
@@ -260,6 +261,7 @@ window.location.href='sign-in';
 }
 const TodoList = styled.div`
 	width: 100vw;
+	margin-top: 150px;
 	height: auto;
 	overflow-x: hidden;
 
@@ -343,9 +345,9 @@ const TodoList = styled.div`
 			0 1px 3px rgba(0, 0, 0, 0.08);
 		background-image: linear-gradient(
 			to right,
-			#895cf2 0%,
-			#ffabf4 50%,
-			#895cf2 100%
+			#25316D 0%,
+			#7FBCD2 50%,
+			#25316D 100%
 		);
 		transition: 0.5s;
 		&:hover {

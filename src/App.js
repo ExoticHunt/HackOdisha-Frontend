@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './App.css';
 import Chatforum from './components/chatforum/chatforum';
+import Prescription from './components/Prescription/Pres'
 // import Av from './components/chatforum/js/web-socket';
 import Todo from './components/todo/todo';
 import './bootstrap.min.css';
@@ -35,14 +36,10 @@ function App({ socket }) {
 		socket.on('disconnect', () => {
 			setIsConnected(false);
 		});
-		socket.on('pong', (message) => {
-			console.log(`ping : ${new Date().toISOString()}`);
-		});
 
 		return () => {
 			socket.off('connect');
 			socket.off('disconnect');
-			socket.off('pong');
 		};
 	}, []);
 	return (
@@ -101,6 +98,12 @@ function App({ socket }) {
 								socket={socket}
 								user={user}
 							/>
+						}
+					/>
+					<Route
+						path={'/prescription'}
+						element={
+							<Prescription socket={socket} />
 						}
 					/>
 				</Routes>
