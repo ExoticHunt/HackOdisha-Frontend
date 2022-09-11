@@ -130,14 +130,14 @@ function Todo() {
       <div className="popup">
         <div>
           <button
-            className=" mt-2 popup-button "
+            className=" btn btn-primary "
             onClick={() => setModal(true)}
           >
             Create Task
           </button>
         </div>
         <div>
-          <button className="mt-2 popup-button " onClick={toggleShow}>
+          <button className="btn btn-primary" onClick={toggleShow}>
             Reminder
           </button>
         </div>
@@ -190,10 +190,10 @@ function Todo() {
               </form>
             </Remind>
             <MDBModalFooter>
+            <MDBBtn type="submit">Save</MDBBtn>
               <MDBBtn color="secondary" onClick={toggleShow}>
                 Close
               </MDBBtn>
-              <MDBBtn type="submit">Save</MDBBtn>
             </MDBModalFooter>
           </MDBModalContent>
         </MDBModalDialog>

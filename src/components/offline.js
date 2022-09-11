@@ -6,4 +6,4 @@ const offline = () => {
   )
 };
 
-export default offline
+export default offline;

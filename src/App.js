@@ -9,7 +9,7 @@ import Footer from './components/Footer';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
 import Contact from './components/Contact';
-import offline from './components/offline';
+import Signout from './components/Signout';
 
 function App() {
 	return (
@@ -19,7 +19,7 @@ function App() {
 				<Routes>
 					<Route
 						exact
-						path="/"
+						path="/sign-in"
 						element={<Login />}
 					/>
 					<Route
@@ -41,6 +41,10 @@ function App() {
 					<Route
 						path={'/todo'}
 						element={<Todo />}
+					/>
+					<Route
+						path={'/sign-out'}
+						element={<Signout />}
 					/>
 				</Routes>
 			</div>

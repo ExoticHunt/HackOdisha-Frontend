@@ -17,12 +17,11 @@ const NavComponent = () => {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="/profile">Profile</Nav.Link>
-            <Nav.Link href="/reminder">To-Do</Nav.Link>
+            <Nav.Link href="/sign-in">Profile</Nav.Link>
+            <Nav.Link href="/todo">To-Do</Nav.Link>
             <Nav.Link href="/meds">Meds</Nav.Link>
-            <Nav.Link href="/community">Community</Nav.Link>
+            <Nav.Link href="/*">Community</Nav.Link>
           </Nav>
-          
           <Form className="d-flex">
             <Form.Control
               type="search"
@@ -34,6 +33,14 @@ const NavComponent = () => {
               <SearchIcon />
             </Button>
           </Form>
+          <Nav className="justify-content-end flex-grow-2">
+              <Nav.Link href="/sign-in">
+                <Button variant="outline-light" size="sm">Sign in</Button>
+              </Nav.Link>
+              <Nav.Link href="/sign-out">
+                <Button variant="outline-light" size="sm">Sign out</Button>
+              </Nav.Link>
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
