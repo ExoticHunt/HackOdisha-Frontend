@@ -30,7 +30,7 @@ const Login = ({ socket, setUser, setIsLogined }) => {
 				window.location.href = 'todo';
 				setUser(user);
 				localStorage.setItem('token', token);
-				localStorage.setItem('user', user);
+				localStorage.setItem('user', user._id);
 			}
 			console.log(message);
 		});

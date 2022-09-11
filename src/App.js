@@ -64,19 +64,6 @@ function App({ socket }) {
 					)}
 					{!isLogined && (
 						<Route
-							exact
-							path="/sign-in"
-							element={
-								<Login
-									socket={socket}
-									setUser={setUser}
-									setIsLogined={setIsLogined}
-								/>
-							}
-						/>
-					)}
-					{!isLogined && (
-						<Route
 							path="/sign-up"
 							element={
 								<SignUp
@@ -87,6 +74,19 @@ function App({ socket }) {
 							}
 						/>
 					)}
+					{!isLogined && (
+						<Route
+							path="/*"
+							element={
+								<Login
+									socket={socket}
+									setUser={setUser}
+									setIsLogined={setIsLogined}
+								/>
+							}
+						/>
+					)}
+
 					{isLogined && (
 						<Route
 							path="/contact"
