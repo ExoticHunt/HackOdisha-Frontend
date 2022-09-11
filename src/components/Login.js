@@ -27,6 +27,7 @@ const Login = ({ socket, setUser, setIsLogined }) => {
 		socket.on('login', ({ res, user, message }) => {
 			if (res) {
 				setIsLogined(true);
+				window.location.href='todo';
 				setUser(user);
 			}
 			console.log(message);

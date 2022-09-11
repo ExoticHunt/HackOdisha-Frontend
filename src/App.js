@@ -62,6 +62,17 @@ function App({ socket }) {
 						}
 					/>
 					<Route
+						exact
+						path="/sign-in"
+						element={
+							<Login
+								socket={socket}
+								setUser={setUser}
+								setIsLogined={setIsLogined}
+							/>
+						}
+					/>
+					<Route
 						path="/sign-up"
 						element={
 							<SignUp

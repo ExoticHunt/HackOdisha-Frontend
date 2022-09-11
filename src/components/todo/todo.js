@@ -15,6 +15,9 @@ import {
 import styled from 'styled-components';
 
 function Todo({ socket, user }) {
+	if(!user){
+window.location.href='sign-in';
+	}
 	const [modal, setModal] = useState(false);
 	const [taskList, setTaskList] = useState([]);
 	useEffect(() => {
