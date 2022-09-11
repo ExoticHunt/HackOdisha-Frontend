@@ -61,7 +61,7 @@ const Login = () => {
                 onChange={handleChange}
               />
             </div>
-            <p className="error">{formErrors.email}</p>
+            <p className="text-danger">{formErrors.email}</p>
             <div className="mb-3">
               <input
                 name="password"
@@ -72,7 +72,7 @@ const Login = () => {
                 onChange={handleChange}
               />
             </div>
-            <p className="error">{formErrors.password}</p>
+            <p className="text-danger">{formErrors.password}</p>
             <div className="d-grid">
               <button type="submit" className="btn btn-primary">
                 Sign in

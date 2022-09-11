@@ -10,6 +10,8 @@ import SignUp from './components/SignUp';
 import Login from './components/Login';
 import Contact from './components/Contact';
 import Signout from './components/Signout';
+import Loading from './components/Loading';
+import Dashboard from './components/Dashboard';
 
 function App() {
 	return (
@@ -17,6 +19,11 @@ function App() {
 			<NavComponent />
 			<div className="main-container">
 				<Routes>
+					<Route
+						exact
+						path="/dashboard"
+						element={<Dashboard />}
+					/>
 					<Route
 						exact
 						path="/sign-in"

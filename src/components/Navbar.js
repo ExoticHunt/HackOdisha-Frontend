@@ -17,7 +17,7 @@ const NavComponent = () => {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="/sign-in">Profile</Nav.Link>
+            <Nav.Link href="/dashboard">DashBoard</Nav.Link>
             <Nav.Link href="/todo">To-Do</Nav.Link>
             <Nav.Link href="/meds">Meds</Nav.Link>
             <Nav.Link href="/*">Community</Nav.Link>

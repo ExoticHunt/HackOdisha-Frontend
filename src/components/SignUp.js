@@ -68,7 +68,7 @@ const SignUp = () => {
 							onChange={handleChange}
 						/>
 					</div>
-					<p className="error">{formErrors.firstname}</p>
+					<p className="text-danger">{formErrors.firstname}</p>
 					<div className="mb-3">
 						<input
 							type="text"
@@ -79,7 +79,7 @@ const SignUp = () => {
 							onChange={handleChange}
 						/>
 					</div>
-					<p className="error">{formErrors.lastname}</p>
+					<p className="text-danger">{formErrors.lastname}</p>
 					<div className="mb-3">
 						<input
 							type="email"
@@ -90,7 +90,7 @@ const SignUp = () => {
 							onChange={handleChange}
 						/>
 					</div>
-					<p className="error">{formErrors.email}</p>
+					<p className="text-danger">{formErrors.email}</p>
 					<div className="mb-3">
 						<input
 							type="password"
@@ -101,7 +101,7 @@ const SignUp = () => {
 							onChange={handleChange}
 						/>
 					</div>
-					<p className="error">{formErrors.password}</p>
+					<p className="text-danger">{formErrors.password}</p>
 					<div className="d-grid">
 						<button
 							type="submit"
@@ -111,7 +111,7 @@ const SignUp = () => {
 						</button>
 					</div>
 					<p className="route">
-						Already registered? <a href="/">Sign in</a>
+						Already registered? <a href="/sign-in">Sign in</a>
 					</p>
 				</div>
 			</div>
