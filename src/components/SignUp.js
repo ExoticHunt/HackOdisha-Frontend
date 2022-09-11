@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 
-const SignUp = () => {
+const SignUp = ({ socket, setUser, setIsLogined }) => {
 	const initialVal = {
 		firstname: '',
 		lastname: '',
@@ -18,9 +18,23 @@ const SignUp = () => {
 		setFormValues({ ...formValues, [name]: value });
 	};
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setFormErrors(validate(formValues));
+		socket.emit('register', {
+			username: formValues.firstname + formValues.lastname,
+			email: formValues.email,
+			password: formValues.password,
+		});
+		await socket.on('register', ({ res, user, message, token }) => {
+			if (res) {
+				setIsLogined(true);
+				setUser(user);
+				localStorage.setItem('token', token);
+				localStorage.setItem('user', user);
+			}
+			console.log(message);
+		});
 		setIsSubmit(true);
 	};
 
