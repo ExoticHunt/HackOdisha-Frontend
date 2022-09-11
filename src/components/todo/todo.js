@@ -260,6 +260,7 @@ window.location.href='sign-in';
 }
 const TodoList = styled.div`
 	width: 100vw;
+	margin-top: 150px;
 	height: auto;
 	overflow-x: hidden;
 
