@@ -23,9 +23,8 @@ function App({ socket }) {
 			if (res) {
 				setIsLogined(true);
 				setUser(user);
-			} else {
-				console.log(message);
 			}
+			console.log(message);
 		});
 	}
 	useEffect(() => {
@@ -50,59 +49,73 @@ function App({ socket }) {
 			<NavComponent />
 			<div className="main-container">
 				<Routes>
-					<Route
-						exact
-						path="/"
-						element={
-							<Login
-								socket={socket}
-								setUser={setUser}
-								setIsLogined={setIsLogined}
-							/>
-						}
-					/>
-					<Route
-						exact
-						path="/sign-in"
-						element={
-							<Login
-								socket={socket}
-								setUser={setUser}
-								setIsLogined={setIsLogined}
-							/>
-						}
-					/>
-					<Route
-						path="/sign-up"
-						element={
-							<SignUp
-								socket={socket}
-								setUser={setUser}
-								setIsLogined={setIsLogined}
-							/>
-						}
-					/>
-					<Route
-						path="/contact"
-						element={<Contact />}
-					/>
+					{!isLogined && (
+						<Route
+							exact
+							path="/"
+							element={
+								<Login
+									socket={socket}
+									setUser={setUser}
+									setIsLogined={setIsLogined}
+								/>
+							}
+						/>
+					)}
+					{!isLogined && (
+						<Route
+							exact
+							path="/sign-in"
+							element={
+								<Login
+									socket={socket}
+									setUser={setUser}
+									setIsLogined={setIsLogined}
+								/>
+							}
+						/>
+					)}
+					{!isLogined && (
+						<Route
+							path="/sign-up"
+							element={
+								<SignUp
+									socket={socket}
+									setUser={setUser}
+									setIsLogined={setIsLogined}
+								/>
+							}
+						/>
+					)}
+					{isLogined && (
+						<Route
+							path="/contact"
+							element={<Contact />}
+						/>
+					)}
+
 					{/* <Route
 						path={'/av'}
 						element={<Av />}
 					/> */}
-					<Route
-						path={'/*'}
-						element={<Chatforum />}
-					/>
-					<Route
-						path={'/todo'}
-						element={
-							<Todo
-								socket={socket}
-								user={user}
-							/>
-						}
-					/>
+					{isLogined && (
+						<Route
+							path={'/*'}
+							element={<Chatforum />}
+						/>
+					)}
+
+					{isLogined && (
+						<Route
+							path={'/todo'}
+							element={
+								<Todo
+									socket={socket}
+									user={user}
+								/>
+							}
+						/>
+					)}
 				</Routes>
 			</div>
 			<Footer />

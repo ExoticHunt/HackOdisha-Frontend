@@ -26,10 +26,12 @@ const SignUp = ({ socket, setUser, setIsLogined }) => {
 			email: formValues.email,
 			password: formValues.password,
 		});
-		await socket.on('register', ({ res, user, message }) => {
+		await socket.on('register', ({ res, user, message, token }) => {
 			if (res) {
 				setIsLogined(true);
 				setUser(user);
+				localStorage.setItem('token', token);
+				localStorage.setItem('user', user);
 			}
 			console.log(message);
 		});
