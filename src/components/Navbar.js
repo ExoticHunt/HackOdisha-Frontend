@@ -9,7 +9,7 @@ const NavComponent = () => {
   return (
     <Navbar bg="primary" variant="dark" expand="lg" fixed="top">
       <Container fluid>
-        <Navbar.Brand href="/">Exotic Hunt</Navbar.Brand>
+        <Navbar.Brand href="/">Rementia</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -17,12 +17,12 @@ const NavComponent = () => {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="/profile">Profile</Nav.Link>
-            <Nav.Link href="/reminder">To-Do</Nav.Link>
+            <Nav.Link href="/dashboard">DashBoard</Nav.Link>
+            <Nav.Link href="/todo">To-Do</Nav.Link>
             <Nav.Link href="/meds">Meds</Nav.Link>
-            <Nav.Link href="/community">Community</Nav.Link>
+            <Nav.Link href="/*">Community</Nav.Link>
           </Nav>
-          <Form className="d-flex">
+          {/* <Form className="d-flex">
             <Form.Control
               type="search"
               placeholder="Search"
@@ -32,7 +32,15 @@ const NavComponent = () => {
             <Button variant="outline-light" size="sm">
               <SearchIcon />
             </Button>
-          </Form>
+          </Form> */}
+          <Nav className="justify-content-end flex-grow-2">
+              <Nav.Link href="/sign-in">
+                <Button variant="outline-light" size="sm">Sign in</Button>
+              </Nav.Link>
+              <Nav.Link href="/sign-out">
+                <Button variant="outline-light" size="sm">Sign out</Button>
+              </Nav.Link>
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>

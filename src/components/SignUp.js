@@ -26,10 +26,12 @@ const SignUp = ({ socket, setUser, setIsLogined }) => {
 			email: formValues.email,
 			password: formValues.password,
 		});
-		await socket.on('register', ({ res, user, message }) => {
+		await socket.on('register', ({ res, user, message, token }) => {
 			if (res) {
 				setIsLogined(true);
 				setUser(user);
+				localStorage.setItem('token', token);
+				localStorage.setItem('user', user);
 			}
 			console.log(message);
 		});
@@ -80,7 +82,7 @@ const SignUp = ({ socket, setUser, setIsLogined }) => {
 							onChange={handleChange}
 						/>
 					</div>
-					<p className="error">{formErrors.firstname}</p>
+					<p className="text-danger">{formErrors.firstname}</p>
 					<div className="mb-3">
 						<input
 							type="text"
@@ -91,7 +93,7 @@ const SignUp = ({ socket, setUser, setIsLogined }) => {
 							onChange={handleChange}
 						/>
 					</div>
-					<p className="error">{formErrors.lastname}</p>
+					<p className="text-danger">{formErrors.lastname}</p>
 					<div className="mb-3">
 						<input
 							type="email"
@@ -102,7 +104,7 @@ const SignUp = ({ socket, setUser, setIsLogined }) => {
 							onChange={handleChange}
 						/>
 					</div>
-					<p className="error">{formErrors.email}</p>
+					<p className="text-danger">{formErrors.email}</p>
 					<div className="mb-3">
 						<input
 							type="password"
@@ -113,7 +115,7 @@ const SignUp = ({ socket, setUser, setIsLogined }) => {
 							onChange={handleChange}
 						/>
 					</div>
-					<p className="error">{formErrors.password}</p>
+					<p className="text-danger">{formErrors.password}</p>
 					<div className="d-grid">
 						<button
 							type="submit"
@@ -123,7 +125,7 @@ const SignUp = ({ socket, setUser, setIsLogined }) => {
 						</button>
 					</div>
 					<p className="route">
-						Already registered? <a href="/">Sign in</a>
+						Already registered? <a href="/sign-in">Sign in</a>
 					</p>
 				</div>
 			</div>

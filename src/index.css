@@ -32,6 +32,8 @@ html,
 	/* width: 30%; */
 }
 
+/* Forms styling */
+
 .auth-inner {
 	width: auto;
 	margin: auto;
@@ -58,6 +60,8 @@ html,
 	margin: 0;
 }
 
+/* Footer styling */
+
 .main-footer {
 	position: relative;
 	width: 100vw;
@@ -80,11 +84,25 @@ html,
 	padding-bottom: 1rem;
 }
 
-.error {
-	color: red;
-}
+/* Contact */
 
 .contact-wrapper .form-control:focus {
 	border-color: #167bff;
 	box-shadow: none;
 }
+
+/* dashboard */
+
+.dashboard {
+	width: 50%;
+	margin: auto;
+}
+
+.card-bottom{
+	margin-top: 20px;
+}
+
+.card-height {
+	height: max-content;
+}
+

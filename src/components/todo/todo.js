@@ -15,9 +15,6 @@ import {
 import styled from 'styled-components';
 
 function Todo({ socket, user }) {
-	if(!user){
-// window.location.href='sign-in';
-	}
 	const [modal, setModal] = useState(false);
 	const [taskList, setTaskList] = useState([]);
 	useEffect(() => {
@@ -62,8 +59,6 @@ function Todo({ socket, user }) {
 	const [reminders, setReminders] = useState([]);
 	const [formData, setFormData] = useState({});
 
-	const noReminder = !reminders || (reminders && reminders.length === 0);
-
 	// const getReminders = async () => {
 	//   const response = await axios.get("/reminders").catch((err) => {
 	//     console.log("Error:", err);
@@ -103,17 +98,23 @@ function Todo({ socket, user }) {
 	// useEffect(() => {
 	//   getReminders();
 	// }, []);
-	function handleReminder() {
-		toggleShow()
+	const handleReminder = async () => {
+toggleShow()
 		const info = {
-			user: user,
-			id: document.getElementById('cnt').value,
+			user: localStorage.getItem('user'),
 			message: document.getElementById('message').value,
+			date: document.getElementById('date').value,
 			time: document.getElementById('time').value,
 		};
 		console.log(info);
-		socket.emit('reminder', info);
-	}
+		socket.emit('remainder', info);
+		await socket.on('remainder', ({ res, message, remainder }) => {
+			if (res) {
+				console.log(remainder);
+			}
+			console.log(message);
+		});
+	};
 	return (
 		<TodoList>
 			{/* <TodoMain>
@@ -192,6 +193,14 @@ function Todo({ socket, user }) {
 									name="reminder"
 									placeholder="Reminder"
 									onChange={handleChange}
+								/>
+								<label htmlFor="Date">Date</label>
+								<input
+									id={'date'}
+									name="date"
+									placeholder="Date"
+									onChange={handleChange}
+									type={'date'}
 								/>
 								<label htmlFor="time">Time</label>
 								<input
@@ -355,8 +364,7 @@ const TodoList = styled.div`
 		}
 	}
 `;
-{
-	/*
+/*
 const TodoMain = styled.div`
 display:flex;
  height:auto;
@@ -395,7 +403,6 @@ justify-content: center;
      }  }
 
 `*/
-}
 
 // const TodoMain = styled.div`
 // display: flex;

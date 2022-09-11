@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useState, useEffect } from 'react';
 
 const Login = ({ socket, setUser, setIsLogined }) => {
@@ -24,11 +24,13 @@ const Login = ({ socket, setUser, setIsLogined }) => {
 			email: formValues.email,
 			password: formValues.password,
 		});
-		socket.on('login', ({ res, user, message }) => {
+		socket.on('login', ({ res, user, message, token }) => {
 			if (res) {
 				setIsLogined(true);
-				window.location.href='todo';
+				window.location.href = 'todo';
 				setUser(user);
+				localStorage.setItem('token', token);
+				localStorage.setItem('user', user._id);
 			}
 			console.log(message);
 		});
@@ -104,4 +106,4 @@ const Login = ({ socket, setUser, setIsLogined }) => {
 	);
 };
 
-export default Login;
+export default memo(Login);
