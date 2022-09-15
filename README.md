@@ -1,6 +1,9 @@
 Our project Rementia is focused on making the lives of people with dementia simpler. Dementia is the loss of cognitive functioning — thinking, remembering, and reasoning — to such an extent that it interferes with a person's daily life and activities. People with dementia often forget to perform day-to-day activities. Even though there are medicines for such condition, medicines are of no use if the person forgets to take them on time. We understand that everyone can not afford to have a person with them all the time to remind them to do tasks. So we have used technology to replace them.
+
 Our website needs people with dementia or their near and dear ones to create a user profile for them. Once registered they can upload their medications with intake time and dose and our website will notify them via e-mail. They can also add tasks to do and we will remind them at the correct time.
+
 People with dementia sometimes forget their identity causing angst to their family and friends. We have made use of machine learning to tackle this issue. If someone finds a dementia patient and wants to help them out they can take a picture of the patient (without having to create a profile for themselves) and make an image search. With our facial recognition technology our application will tell them if the suspected person is a dementia patient or not. If yes, our application will share the patient's basic details so that they can be helped.
+
 This is a live website.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
